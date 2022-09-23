@@ -1,0 +1,18 @@
+version: "3.3"
+
+services:
+  java:
+    build:
+      context: ./java
+      dockerfile: Dockerfile
+    restart: unless-stopped
+  
+  react:
+    build:
+      context: ./react
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    environment:
+      CHOKIDAR_USEPOLLING: "true"

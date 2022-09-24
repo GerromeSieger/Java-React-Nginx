@@ -22,12 +22,12 @@ services:
     depends_on:
       - mysql
   
-  nginx:
+  apache:
     build:
       context: ./react
       dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "3000:3000"
     restart: unless-stopped
     environment:
       CHOKIDAR_USEPOLLING: "true"
